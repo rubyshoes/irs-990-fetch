@@ -38,7 +38,7 @@ request(index)
   .pipe(es.mapSync(function (data) {
 
     //Filter results to only foundations w/ data available
-    if(data.URL && data.URL.length > 0 && data.FormType == '990PF') {
+    if(data.URL && data.URL.length > 0 && data.FormType == '990') {
 
       var ein = data.EIN;
       var url = data.URL;
@@ -72,7 +72,7 @@ request(index)
             var obj = {};
 
             //Assets
-            var assets = resultJS.Return.ReturnData.IRS990PF.FMVAssetsEOYAmt || resultJS.Return.ReturnData.IRS990PF.FMVAssetsEOY || null;
+            var assets = resultJS.Return.ReturnData.IRS990.FMVAssetsEOYAmt || resultJS.Return.ReturnData.IRS990.FMVAssetsEOY || null;
 
             //Tax Year
             var taxYear = resultJS.Return.ReturnHeader.TaxYr || resultJS.Return.ReturnHeader.TaxYear || null;
@@ -93,8 +93,8 @@ request(index)
             
             //Website
             var website = null;
-            var websiteNew = resultJS.Return.ReturnData.IRS990PF.StatementsRegardingActyGrp;
-            var websiteOld = resultJS.Return.ReturnData.IRS990PF.StatementsRegardingActivities;
+            var websiteNew = resultJS.Return.ReturnData.IRS990.StatementsRegardingActyGrp;
+            var websiteOld = resultJS.Return.ReturnData.IRS990.StatementsRegardingActivities;
 
             if (websiteNew) {
               if (websiteNew.WebsiteAddressTxt) {
