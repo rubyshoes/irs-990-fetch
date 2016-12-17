@@ -38,7 +38,7 @@ request(index)
   .pipe(es.mapSync(function (data) {
 
     //Filter results to only foundations w/ data available
-    if(data.URL && data.URL.length > 0 && data.FormType == '990PF') {
+    if(data.URL && data.URL.length > 0 && data.FormType == '990') {
 
         //Fetch XML using AWS SDK
         var targetKey = data.ObjectId + '_public.xml';
