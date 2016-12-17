@@ -17,7 +17,7 @@ var paramsIndex = {
 // Narrow :: Filter index to foundations only :: Form 990PF
 var narrow = new Transform({objectMode: true});
 narrow._transform = function(data, encoding, done) {
-  if(data.URL && data.URL.length > 0 && data.FormType == '990PF') {
+  if(data.URL && data.URL.length > 0 && data.FormType == '990') {
     this.push(data);
   }
   done();
